@@ -1,7 +1,6 @@
-
 import { motion } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
-import { Code2, Terminal, Tools, Laptop } from 'lucide-react';
+import { Code2, Terminal, Wrench, Laptop } from 'lucide-react';
 
 const skills = {
   languages: ['Java', 'C++', 'HTML/CSS', 'JavaScript', 'TypeScript', 'SQL', 'Node.js', 'Express.js', 'React'],
@@ -79,7 +78,7 @@ const SkillsSection = () => {
             <Card className="backdrop-blur-card h-full">
               <CardContent className="pt-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <Tools className="w-5 h-5 text-primary" />
+                  <Wrench className="w-5 h-5 text-primary" />
                   <h3 className="text-lg font-semibold">Tools</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
