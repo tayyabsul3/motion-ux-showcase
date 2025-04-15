@@ -1,12 +1,13 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import { useDarkMode } from '@/hooks/useDarkMode';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { isDarkMode, setIsDarkMode } = useDarkMode();
 
   // Handle scroll event to change navbar styling
   useEffect(() => {
@@ -53,7 +54,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {['Home', 'About', 'Projects', 'Testimonials', 'Contact'].map((item) => (
+            {['Home', 'About', 'Experience', 'Skills', 'Education', 'Projects', 'Contact'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -64,8 +65,16 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Dark Mode Toggle and CTA Button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="text-gray-700 dark:text-gray-200"
+            >
+              {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
             <Button 
               className="bg-primary hover:bg-primary/90"
               onClick={() => window.open('/resume.pdf', '_blank')}
@@ -75,7 +84,15 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="text-gray-700 dark:text-gray-200"
+            >
+              {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
             <Button 
               variant="ghost" 
               size="icon"
@@ -98,7 +115,7 @@ const Navbar = () => {
           className="md:hidden bg-white dark:bg-slate-900 px-4 pt-2 pb-4 shadow-md"
         >
           <nav className="flex flex-col space-y-4">
-            {['Home', 'About', 'Projects', 'Testimonials', 'Contact'].map((item) => (
+            {['Home', 'About', 'Experience', 'Skills', 'Education', 'Projects', 'Contact'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
