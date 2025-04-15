@@ -1,12 +1,23 @@
-
-import { motion } from 'framer-motion';
-import { Code, Server, Database, Globe, Layout, Zap } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Code, Server, Database, Globe, Layout, Zap } from "lucide-react";
 
 const technologies = [
-  { name: 'Frontend', icon: Layout, skills: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js'] },
-  { name: 'Backend', icon: Server, skills: ['Node.js', 'Express', 'NestJS', 'GraphQL'] },
-  { name: 'Databases', icon: Database, skills: ['MongoDB', 'PostgreSQL', 'Redis', 'Firebase'] },
-  { name: 'Other', icon: Globe, skills: ['Git', 'Docker', 'AWS', 'CI/CD'] },
+  {
+    name: "Frontend",
+    icon: Layout,
+    skills: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
+  },
+  {
+    name: "Backend",
+    icon: Server,
+    skills: ["Node.js", "Express", "FastApi", "GraphQL"],
+  },
+  {
+    name: "Databases",
+    icon: Database,
+    skills: ["MongoDB", "PostgreSQL", "MySql", "Firebase"],
+  },
+  { name: "Other", icon: Globe, skills: ["Git", "Github", "Vercel", "Render"] },
 ];
 
 const AboutSection = () => {
@@ -17,9 +28,9 @@ const AboutSection = () => {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -27,8 +38,8 @@ const AboutSection = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
 
   return (
@@ -43,7 +54,8 @@ const AboutSection = () => {
         >
           <h2 className="section-title mb-4">About Me</h2>
           <p className="section-subtitle">
-            I'm a passionate full stack developer with 5+ years of experience in building web applications.
+            I'm a passionate full stack developer with 1+ years of experience in
+            building web applications.
           </p>
         </motion.div>
 
@@ -57,13 +69,21 @@ const AboutSection = () => {
           >
             <h3 className="text-2xl font-bold mb-4">My Background</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              I'm a full stack developer with a passion for creating efficient, scalable, and user-friendly web applications. With over 5 years of experience in the field, I've worked on various projects ranging from small business websites to large enterprise applications.
+              I'm a full stack developer with a passion for creating efficient,
+              scalable, and user-friendly web applications. With over 1 years of
+              experience in the field, I've worked on various projects ranging
+              from small business websites to large enterprise applications.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              My journey in web development started when I built my first website in college. Since then, I've been continuously learning and keeping up with the latest technologies and best practices in the industry.
+              My journey in web development started when I built my first
+              website in college. Since then, I've been continuously learning
+              and keeping up with the latest technologies and best practices in
+              the industry.
             </p>
             <p className="text-gray-600 dark:text-gray-300">
-              I focus on writing clean, maintainable code and creating intuitive user experiences. My goal is to build applications that not only meet the requirements but exceed expectations.
+              I focus on writing clean, maintainable code and creating intuitive
+              user experiences. My goal is to build applications that not only
+              meet the requirements but exceed expectations.
             </p>
           </motion.div>
 
@@ -87,7 +107,10 @@ const AboutSection = () => {
                   </div>
                   <ul className="space-y-1">
                     {tech.skills.map((skill) => (
-                      <li key={skill} className="text-sm text-gray-600 dark:text-gray-300 flex items-center">
+                      <li
+                        key={skill}
+                        className="text-sm text-gray-600 dark:text-gray-300 flex items-center"
+                      >
                         <Code className="w-3 h-3 mr-2 text-primary" />
                         {skill}
                       </li>

@@ -1,13 +1,18 @@
-
-import { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Award, Code, Users, Briefcase } from 'lucide-react';
+import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { Award, Code, Users, Briefcase } from "lucide-react";
 
 const stats = [
-  { id: 1, number: 50, suffix: '+', title: 'Projects Completed', icon: Briefcase },
-  { id: 2, number: 5, suffix: '+', title: 'Years of Experience', icon: Award },
-  { id: 3, number: 20, suffix: 'K+', title: 'Lines of Code', icon: Code },
-  { id: 4, number: 30, suffix: '+', title: 'Happy Clients', icon: Users },
+  {
+    id: 1,
+    number: 20,
+    suffix: "+",
+    title: "Projects Completed",
+    icon: Briefcase,
+  },
+  { id: 2, number: 1, suffix: "+", title: "Years of Experience", icon: Award },
+  { id: 3, number: 20, suffix: "K+", title: "Lines of Code", icon: Code },
+  { id: 4, number: 5, suffix: "+", title: "Happy Clients", icon: Users },
 ];
 
 const NumbersSection = () => {
@@ -16,12 +21,12 @@ const NumbersSection = () => {
       <div className="section-container">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat) => (
-            <CountUp 
-              key={stat.id} 
-              targetNumber={stat.number} 
-              suffix={stat.suffix} 
-              title={stat.title} 
-              icon={stat.icon} 
+            <CountUp
+              key={stat.id}
+              targetNumber={stat.number}
+              suffix={stat.suffix}
+              title={stat.title}
+              icon={stat.icon}
             />
           ))}
         </div>
@@ -37,7 +42,12 @@ interface CountUpProps {
   icon: React.ElementType;
 }
 
-const CountUp: React.FC<CountUpProps> = ({ targetNumber, suffix = '', title, icon: Icon }) => {
+const CountUp: React.FC<CountUpProps> = ({
+  targetNumber,
+  suffix = "",
+  title,
+  icon: Icon,
+}) => {
   const [count, setCount] = useState(0);
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -75,11 +85,11 @@ const CountUp: React.FC<CountUpProps> = ({ targetNumber, suffix = '', title, ico
     const timer = setInterval(() => {
       const elapsedTime = Date.now() - startTime;
       const progress = Math.min(elapsedTime / duration, 1);
-      
+
       // Easing function for smoother animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       const current = Math.floor(easeOutQuart * end);
-      
+
       setCount(current);
 
       if (progress === 1) {
