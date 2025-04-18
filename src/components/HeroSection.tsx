@@ -131,11 +131,11 @@ const HeroSection = () => {
           className="order-1 md:order-2 flex justify-center"
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-primary rounded-full blur-3xl opacity-20 -z-10 scale-75"></div>
+            <div className="absolute  inset-0 bg-primary rounded-full blur-3xl opacity-20 -z-10 scale-75"></div>
             <img
               src="/images/profile-pic.png"
               alt="John Doe"
-              className="rounded-3xl  max-w-md w-full object-cover"
+              className="rounded-3xl hidden md:block  max-w-md w-full object-cover"
             />
           </div>
         </motion.div>

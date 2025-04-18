@@ -1,37 +1,40 @@
-
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    title: 'Product Manager at TechCorp',
-    content: 'John is an exceptional developer who consistently delivers high-quality code. His attention to detail and problem-solving abilities made our project a success. I would highly recommend him for any web development project.',
-    avatar: 'https://randomuser.me/api/portraits/women/1.jpg',
+    name: "Sarah Johnson",
+    title: "Product Manager at TechCorp",
+    content:
+      "John is an exceptional developer who consistently delivers high-quality code. His attention to detail and problem-solving abilities made our project a success. I would highly recommend him for any web development project.",
+    avatar: "https://randomuser.me/api/portraits/women/1.jpg",
   },
   {
     id: 2,
-    name: 'Michael Chen',
-    title: 'CTO at StartupX',
-    content: 'Working with John was a pleasure. He not only understood our technical requirements but also provided valuable insights that improved our product. His work is clean, well-documented, and delivered on time.',
-    avatar: 'https://randomuser.me/api/portraits/men/2.jpg',
+    name: "Michael Chen",
+    title: "CTO at StartupX",
+    content:
+      "Working with Tayyab was a pleasure. He not only understood our technical requirements but also provided valuable insights that improved our product. His work is clean, well-documented, and delivered on time.",
+    avatar: "https://randomuser.me/api/portraits/men/2.jpg",
   },
   {
     id: 3,
-    name: 'Emily Rodriguez',
-    title: 'Frontend Lead at DesignStudio',
-    content: 'John has a rare combination of technical expertise and creative problem solving. He took our vague concept and turned it into a beautiful, functional application that exceeded our expectations.',
-    avatar: 'https://randomuser.me/api/portraits/women/3.jpg',
+    name: "Emily Rodriguez",
+    title: "Frontend Lead at DesignStudio",
+    content:
+      "Tayyab has a rare combination of technical expertise and creative problem solving. He took our vague concept and turned it into a beautiful, functional application that exceeded our expectations.",
+    avatar: "https://randomuser.me/api/portraits/women/3.jpg",
   },
   {
     id: 4,
-    name: 'David Kim',
-    title: 'Project Manager at EnterpriseY',
-    content: 'I was impressed by John\'s ability to quickly understand our complex requirements and deliver a solution that was both elegant and efficient. He\'s a skilled developer who communicates effectively throughout the project.',
-    avatar: 'https://randomuser.me/api/portraits/men/4.jpg',
+    name: "David Kim",
+    title: "Project Manager at EnterpriseY",
+    content:
+      "I was impressed by Tayyab's ability to quickly understand our complex requirements and deliver a solution that was both elegant and efficient. He's a skilled developer who communicates effectively throughout the project.",
+    avatar: "https://randomuser.me/api/portraits/men/4.jpg",
   },
 ];
 
@@ -42,12 +45,16 @@ const TestimonialsSection = () => {
 
   const prevSlide = () => {
     setDirection(-1);
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
   };
 
   const nextSlide = () => {
     setDirection(1);
-    setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   // Auto-advancing carousel
@@ -83,7 +90,10 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50 dark:bg-slate-900/60">
+    <section
+      id="testimonials"
+      className="py-20 bg-gray-50 dark:bg-slate-900/60"
+    >
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -94,7 +104,8 @@ const TestimonialsSection = () => {
         >
           <h2 className="section-title mb-4">Client Testimonials</h2>
           <p className="section-subtitle">
-            Here's what clients and colleagues have to say about working with me.
+            Here's what clients and colleagues have to say about working with
+            me.
           </p>
         </motion.div>
 
@@ -107,7 +118,7 @@ const TestimonialsSection = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="absolute w-full"
             >
               <div className="max-w-3xl mx-auto bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg">
@@ -124,8 +135,12 @@ const TestimonialsSection = () => {
                     className="w-14 h-14 rounded-full object-cover mr-4"
                   />
                   <div>
-                    <h4 className="font-bold">{testimonials[currentIndex].name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{testimonials[currentIndex].title}</p>
+                    <h4 className="font-bold">
+                      {testimonials[currentIndex].name}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      {testimonials[currentIndex].title}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -162,7 +177,9 @@ const TestimonialsSection = () => {
                   setCurrentIndex(index);
                 }}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'
+                  index === currentIndex
+                    ? "bg-primary"
+                    : "bg-gray-300 dark:bg-gray-600"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

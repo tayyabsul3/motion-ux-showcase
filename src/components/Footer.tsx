@@ -53,7 +53,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Contact Me</h3>
             <p className="text-gray-400 mb-2">Rawalpindi, Pakistan</p>
             <p className="text-gray-400 mb-2">
-              <a href="mailto:johndoe@example.com" className="hover:text-white transition-colors">
+              <a href="mailto:tayyabsultan621@gmail.com" className="hover:text-white transition-colors">
               tayyabsultan621@gmail.com
               </a>
             </p>
