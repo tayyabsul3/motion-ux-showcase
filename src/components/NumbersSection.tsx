@@ -5,7 +5,7 @@ import { Award, Code, Users, Briefcase } from "lucide-react";
 const stats = [
   {
     id: 1,
-    number: 20,
+    number: 10,
     suffix: "+",
     title: "Projects Completed",
     icon: Briefcase,
