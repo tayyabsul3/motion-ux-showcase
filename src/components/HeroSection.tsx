@@ -134,7 +134,7 @@ const HeroSection = () => {
             <div className="absolute  inset-0 bg-primary rounded-full blur-3xl opacity-20 -z-10 scale-75"></div>
             <img
               src="/images/profile-pic.png"
-              alt="John Doe"
+              alt="Tayyab Profile Pic"
               className="rounded-3xl hidden md:block  max-w-md w-full object-cover"
             />
           </div>

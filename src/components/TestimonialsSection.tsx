@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
+    name: "Sarah Tayyabson",
     title: "Product Manager at TechCorp",
     content:
-      "John is an exceptional developer who consistently delivers high-quality code. His attention to detail and problem-solving abilities made our project a success. I would highly recommend him for any web development project.",
+      "Tayyab is an exceptional developer who consistently delivers high-quality code. His attention to detail and problem-solving abilities made our project a success. I would highly recommend him for any web development project.",
     avatar: "https://randomuser.me/api/portraits/women/1.jpg",
   },
   {
