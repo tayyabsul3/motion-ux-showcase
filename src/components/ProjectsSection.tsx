@@ -71,26 +71,26 @@ const projects = [
     demoUrl: "https://solar-website-kappa-brown.vercel.app/",
     repoUrl: "",
   },
-  {
-    id: 7,
-    title: "HTML and CSS UI Clones",
-    description:
-      "Responsive UI clones of popular platforms like YouTube, Netflix, and Amazon to demonstrate pixel-perfect design replication skills.",
-    image: "/images/HtmlCss.png",
-    tags: ["HTML", "CSS"],
-    demoUrl: "https://html-and-css-projects-five.vercel.app/",
-    repoUrl: "",
-  },
-  {
-    id: 8,
-    title: "JavaScript Projects",
-    description:
-      "A curated set of beginner-friendly JavaScript mini-projects like a Todo App, Calculator, Stopwatch, and classic games like Tic Tac Toe and Rock Paper Scissors.",
-    image: "/images/JSprojects.png",
-    tags: ["HTML", "CSS", "JavaScript"],
-    demoUrl: "http://javascript-projects-psi-ten.vercel.app/",
-    repoUrl: "",
-  },
+  // {
+  //   id: 7,
+  //   title: "HTML and CSS UI Clones",
+  //   description:
+  //     "Responsive UI clones of popular platforms like YouTube, Netflix, and Amazon to demonstrate pixel-perfect design replication skills.",
+  //   image: "/images/HtmlCss.png",
+  //   tags: ["HTML", "CSS"],
+  //   demoUrl: "https://html-and-css-projects-five.vercel.app/",
+  //   repoUrl: "",
+  // },
+  // {
+  //   id: 8,
+  //   title: "JavaScript Projects",
+  //   description:
+  //     "A curated set of beginner-friendly JavaScript mini-projects like a Todo App, Calculator, Stopwatch, and classic games like Tic Tac Toe and Rock Paper Scissors.",
+  //   image: "/images/JSprojects.png",
+  //   tags: ["HTML", "CSS", "JavaScript"],
+  //   demoUrl: "http://javascript-projects-psi-ten.vercel.app/",
+  //   repoUrl: "",
+  // },
 ];
 
 const ProjectsSection = () => {
