@@ -5,18 +5,8 @@ import { Button } from "@/components/ui/button";
 
 const projects = [
   {
-    id: 1,
-    title: "E-Commerce Platform",
-    description:
-      "A scalable e-commerce solution with seamless product browsing, cart management, Stripe-based payments, and a clean user experience, built for performance and growth.",
-    image: "/images/Ecomm1.png",
-    tags: ["React", "Node.js", "Express", "MongoDB", "Redux", "Stripe API"],
-    demoUrl: "https://next-store-ruddy-three.vercel.app/",
-    repoUrl: "https://github.com/tayyabsul3/next_Store",
-  },
-  {
     id: 2,
-    title: "Resturaunt Management System",
+    title: "D-go RMS Solution",
     description:
       "A complete restaurant suite with a website, POS, and dashboard that supports both online ordering and on-premise dining operations.",
     image: "/images/RMS1.png",
@@ -28,19 +18,10 @@ const projects = [
       "Node Js",
       "Express",
     ],
-    demoUrl: "",
+    demoUrl: "https://foodpleasure-restaurant.web.app/",
     repoUrl: "",
   },
-  {
-    id: 3,
-    title: "Social Media App",
-    description:
-      "A mobile-first social networking app with user authentication, real-time messaging, media posting, and smooth user interaction using React Native.",
-    image: "/images/Sociableapp.png",
-    tags: ["React Native", "Supabase", "PostgreSQL"],
-    demoUrl: "",
-    repoUrl: "https://github.com/tayyabsul3/Sociableapp",
-  },
+
   {
     id: 4,
     title: "PopIt Teams",
@@ -49,6 +30,26 @@ const projects = [
     image: "/images/PopIt1.png",
     tags: ["React", "Supabase", "Tailwind CSS", "PostgreSQL"],
     demoUrl: "https://teams.popitnl.nl/auth/1",
+    repoUrl: "",
+  },
+  {
+    id: 1,
+    title: "Elegant Store",
+    description:
+      "A scalable e-commerce solution with seamless product browsing, cart management, Stripe-based payments, and a clean user experience, built for performance and growth.",
+    image: "/images/Ecomm1.png",
+    tags: ["React", "Node.js", "Express", "MongoDB", "Redux", "Stripe API"],
+    demoUrl: "https://next-store-ruddy-three.vercel.app/",
+    repoUrl: "https://github.com/tayyabsul3/next_Store",
+  },
+  {
+    id: 6,
+    title: "Hyper Solar Solution Website",
+    description:
+      "A clean and modern website built for a solar energy company to showcase their products, pricing, billing calculator, and installation services.",
+    image: "/images/HyperSol.png",
+    tags: ["React", "Tailwind Css"],
+    demoUrl: "https://solar-website-kappa-brown.vercel.app/",
     repoUrl: "",
   },
   {
@@ -62,35 +63,15 @@ const projects = [
     repoUrl: "",
   },
   {
-    id: 6,
-    title: "Hyper Solar Solution Website",
+    id: 3,
+    title: "Social Media App",
     description:
-      "A clean and modern website built for a solar energy company to showcase their products, pricing, billing calculator, and installation services.",
-    image: "/images/HyperSol.png",
-    tags: ["React", "Tailwind Css"],
-    demoUrl: "https://solar-website-kappa-brown.vercel.app/",
-    repoUrl: "",
+      "A mobile-first social networking app with user authentication, real-time messaging, media posting, and smooth user interaction using React Native.",
+    image: "/images/Sociableapp.png",
+    tags: ["React Native", "Supabase", "PostgreSQL"],
+    demoUrl: "",
+    repoUrl: "https://github.com/tayyabsul3/Sociableapp",
   },
-  // {
-  //   id: 7,
-  //   title: "HTML and CSS UI Clones",
-  //   description:
-  //     "Responsive UI clones of popular platforms like YouTube, Netflix, and Amazon to demonstrate pixel-perfect design replication skills.",
-  //   image: "/images/HtmlCss.png",
-  //   tags: ["HTML", "CSS"],
-  //   demoUrl: "https://html-and-css-projects-five.vercel.app/",
-  //   repoUrl: "",
-  // },
-  // {
-  //   id: 8,
-  //   title: "JavaScript Projects",
-  //   description:
-  //     "A curated set of beginner-friendly JavaScript mini-projects like a Todo App, Calculator, Stopwatch, and classic games like Tic Tac Toe and Rock Paper Scissors.",
-  //   image: "/images/JSprojects.png",
-  //   tags: ["HTML", "CSS", "JavaScript"],
-  //   demoUrl: "http://javascript-projects-psi-ten.vercel.app/",
-  //   repoUrl: "",
-  // },
 ];
 
 const ProjectsSection = () => {
