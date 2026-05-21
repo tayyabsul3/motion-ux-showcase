@@ -1,191 +1,185 @@
-import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, Quote, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
     id: 1,
-    name: "Sarah",
-    title: "Product Manager at TechCorp",
-    content:
-      "Tayyab is an exceptional developer who consistently delivers high-quality code. His attention to detail and problem-solving abilities made our project a success. I would highly recommend him for any web development project.",
-    avatar: "https://randomuser.me/api/portraits/women/1.jpg",
+    name: "Taha Karim",
+    role: "Innovation Manager",
+    company: "Siber Koza International",
+    testimony: "He has been a standout full-stack developer on our team, handling both web and mobile work with equal ease. What I value most is how quickly he turns complex requirements into clean, scalable solutions without sacrificing quality, even when deadlines are tight. He doesn’t only work on the code rather he takes ownership of the problem, communicates clearly, and delivers production-ready work on time. He is calm under pressure and consistently reliable."
   },
   {
     id: 2,
-    name: "Michael Chen",
-    title: "CTO at StartupX",
-    content:
-      "Working with Tayyab was a pleasure. He not only understood our technical requirements but also provided valuable insights that improved our product. His work is clean, well-documented, and delivered on time.",
-    avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+    name: "Ehtisham Ejaz",
+    role: "CEO",
+    company: "Dassoft",
+    testimony: "Reliability and technical competence are tough to find, but Tayyab Sultan has brought both to our company for the last two years. He has been instrumental in launching key web architectures and scaling our platforms. His dedication makes them a standout developer."
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    title: "Frontend Lead at DesignStudio",
-    content:
-      "Tayyab has a rare combination of technical expertise and creative problem solving. He took our vague concept and turned it into a beautiful, functional application that exceeded our expectations.",
-    avatar: "https://randomuser.me/api/portraits/women/3.jpg",
-  },
-  {
-    id: 4,
-    name: "David Kim",
-    title: "Project Manager at EnterpriseY",
-    content:
-      "I was impressed by Tayyab's ability to quickly understand our complex requirements and deliver a solution that was both elegant and efficient. He's a skilled developer who communicates effectively throughout the project.",
-    avatar: "https://randomuser.me/api/portraits/men/4.jpg",
-  },
+    name: "Hesham",
+    role: "CTO",
+    company: "Dassoft",
+    testimony: "Tayyab is a skilled professional who pairs deep technical expertise with strategic, creative problem-solving. Rather than simply executing our project requirements, they actively elevated our vision, delivering high-performance results that drove tangible business impact."
+  }
 ];
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const timeoutRef = useRef<number | null>(null);
+  const [direction, setDirection] = useState(0); // -1: left, 1: right
 
-  const prevSlide = () => {
-    setDirection(-1);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-
-  const nextSlide = () => {
-    setDirection(1);
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // Auto-advancing carousel
-  useEffect(() => {
-    const startTimer = () => {
-      timeoutRef.current = window.setTimeout(() => {
-        nextSlide();
-      }, 5000);
-    };
-
-    startTimer();
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [currentIndex]);
-
-  const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 300 : -300,
+      opacity: 0
     }),
     center: {
       x: 0,
-      opacity: 1,
+      opacity: 1
     },
-    exit: (direction: number) => ({
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
+    exit: (dir: number) => ({
+      x: dir < 0 ? 300 : -300,
+      opacity: 0
+    })
   };
 
+  const handleNext = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const handlePrev = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
+  const current = testimonials[currentIndex];
+
   return (
-    <section
-      id="testimonials"
-      className="py-20 bg-gray-50 dark:bg-slate-900/60"
-    >
+    <section id="testimonials" className="relative py-20 bg-[#050508] text-white border-t border-white/5 overflow-hidden">
+      
+      {/* Blurred background orbs */}
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" />
+
       <div className="section-container">
+        
+        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="text-center mb-16"
         >
-          <h2 className="section-title mb-4">Client Testimonials</h2>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+            <MessageSquare size={12} /> Recommendations
+          </div>
+          <h2 className="section-title">Client Testimonials</h2>
           <p className="section-subtitle">
-            Here's what clients and colleagues have to say about working with
-            me.
+            Read what industry leaders and international clients say about my technical deliveries and execution
           </p>
         </motion.div>
 
-        <div className="relative overflow-hidden">
-          <div className="relative h-96 md:h-80">
-            <motion.div
-              key={currentIndex}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute w-full"
-            >
-              <div className="max-w-3xl mx-auto bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg">
-                <div className="text-primary mb-4">
-                  <Quote size={40} className="opacity-20" />
-                </div>
-                <p className="text-lg mb-6 text-gray-700 dark:text-gray-300 italic">
-                  "{testimonials[currentIndex].content}"
-                </p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonials[currentIndex].avatar}
-                    alt={testimonials[currentIndex].name}
-                    className="w-14 h-14 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h4 className="font-bold">
-                      {testimonials[currentIndex].name}
+        {/* Swipeable Carousel Container */}
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-12 flex flex-col items-center">
+          
+          <div className="relative w-full overflow-hidden flex items-center justify-center py-4 min-h-[300px]">
+            
+            <AnimatePresence initial={false} custom={direction} mode="wait">
+              <motion.div
+                key={currentIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.4}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x > 80) {
+                    handlePrev();
+                  } else if (info.offset.x < -80) {
+                    handleNext();
+                  }
+                }}
+                className="w-full px-1 cursor-grab active:cursor-grabbing"
+              >
+                <div className="rounded-3xl glass-card bg-slate-950/40 border border-white/5 p-6 sm:p-8 relative shadow-2xl overflow-hidden flex flex-col justify-between min-h-[260px] w-full">
+                  
+                  {/* Glowing quote symbol */}
+                  <div className="absolute top-4 right-6 text-primary/10 -z-10">
+                    <Quote size={120} className="stroke-[1]" />
+                  </div>
+
+                  {/* Testimonial Quote */}
+                  <p className="text-sm sm:text-base md:text-lg text-slate-300 italic leading-relaxed font-medium mb-6">
+                    "{current.testimony}"
+                  </p>
+
+                  {/* Profile Signature Details */}
+                  <div className="border-t border-white/5 pt-4">
+                    <h4 className="font-bold text-white leading-tight text-sm sm:text-base">
+                      {current.name}
                     </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {testimonials[currentIndex].title}
+                    <p className="text-xs sm:text-sm text-slate-400 font-semibold uppercase tracking-wider mt-1">
+                      {current.role} <span className="text-primary font-bold">•</span> {current.company}
                     </p>
                   </div>
+
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </AnimatePresence>
+
           </div>
 
-          {/* Navigation Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-4">
+          {/* Left / Right Arrow buttons */}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-4 sm:left-0 -right-4 sm:right-0 justify-between flex pointer-events-none z-30">
             <Button
-              variant="ghost"
+              variant="outline"
               size="icon"
-              onClick={prevSlide}
-              className="bg-white/80 dark:bg-slate-800/80 text-primary hover:bg-white dark:hover:bg-slate-800 rounded-full shadow-md"
+              onClick={handlePrev}
+              className="w-10 h-10 rounded-full bg-slate-950/80 border border-white/10 text-slate-400 hover:text-white pointer-events-auto hover:bg-primary shadow-lg hover:scale-105 transition-transform"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} />
             </Button>
+
             <Button
-              variant="ghost"
+              variant="outline"
               size="icon"
-              onClick={nextSlide}
-              className="bg-white/80 dark:bg-slate-800/80 text-primary hover:bg-white dark:hover:bg-slate-800 rounded-full shadow-md"
+              onClick={handleNext}
+              className="w-10 h-10 rounded-full bg-slate-950/80 border border-white/10 text-slate-400 hover:text-white pointer-events-auto hover:bg-primary shadow-lg hover:scale-105 transition-transform"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} />
             </Button>
           </div>
 
-          {/* Indicator Dots */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {testimonials.map((_, index) => (
+          {/* Carousel dots indicator navigation */}
+          <div className="flex gap-2.5 mt-8 justify-center z-10 relative">
+            {testimonials.map((_, idx) => (
               <button
-                key={index}
+                key={idx}
                 onClick={() => {
-                  setDirection(index > currentIndex ? 1 : -1);
-                  setCurrentIndex(index);
+                  setDirection(idx > currentIndex ? 1 : -1);
+                  setCurrentIndex(idx);
                 }}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentIndex
-                    ? "bg-primary"
-                    : "bg-gray-300 dark:bg-gray-600"
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  idx === currentIndex
+                    ? "bg-primary w-6 shadow-[0_0_10px_rgba(99,102,241,0.6)]"
+                    : "bg-slate-700 hover:bg-slate-500"
                 }`}
-                aria-label={`Go to testimonial ${index + 1}`}
+                aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
           </div>
+
         </div>
+
       </div>
     </section>
   );

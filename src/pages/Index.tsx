@@ -7,7 +7,6 @@ import SkillsSection from "@/components/SkillsSection";
 import EducationSection from "@/components/EducationSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import NumbersSection from "@/components/NumbersSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -25,7 +24,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#050508]">
       <Navbar />
       <HeroSection />
       <AboutSection />
@@ -34,7 +33,6 @@ const Index = () => {
       <ExperienceSection />
       <EducationSection />
       <TestimonialsSection />
-      <NumbersSection />
       <ContactSection />
       <Footer />
     </div>
