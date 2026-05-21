@@ -127,7 +127,7 @@ const ContactSection = () => {
               Contact Information
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
-              I am currently available for both **freelance engagements** and **full-time employment roles**. If you have an exciting mobile app, digital twin, or web product, I'd love to join forces!
+              I am currently available for both <strong className="font-semibold text-slate-200">freelance engagements</strong> and <strong className="font-semibold text-slate-200">full-time employment roles</strong>. If you have an exciting mobile app, digital twin, or web product, I'd love to join forces!
             </p>
 
             <div className="flex flex-col gap-4">

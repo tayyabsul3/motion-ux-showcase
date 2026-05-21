@@ -16,14 +16,14 @@ const testimonials = [
     name: "Ehtisham Ejaz",
     role: "CEO",
     company: "Dassoft",
-    testimony: "Reliability and technical competence are tough to find, but Tayyab Sultan has brought both to our company for the last two years. He has been instrumental in launching key web architectures and scaling our platforms. His dedication makes them a standout developer."
+    testimony: "Reliability and technical competence are tough to find, but Tayyab Sultan has brought both to our company for the last two years. He has been instrumental in launching key web architectures and scaling our platforms. His dedication makes him a standout developer."
   },
   {
     id: 3,
     name: "Hesham",
     role: "CTO",
     company: "Dassoft",
-    testimony: "Tayyab is a skilled professional who pairs deep technical expertise with strategic, creative problem-solving. Rather than simply executing our project requirements, they actively elevated our vision, delivering high-performance results that drove tangible business impact."
+    testimony: "Tayyab is a skilled professional who pairs deep technical expertise with strategic, creative problem-solving. Rather than simply executing our project requirements, he actively elevated our vision, delivering high-performance results that drove tangible business impact."
   }
 ];
 
